@@ -1,0 +1,4 @@
+This is a sample text file.
+It contains some words for testing the MPI word count program.
+Each line is a new sentence.
+Repeat words for frequency testing.

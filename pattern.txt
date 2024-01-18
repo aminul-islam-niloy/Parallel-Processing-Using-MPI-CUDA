@@ -1,0 +1,4 @@
+This is a sample paragraph. It contains some sample text with %pattern% occurrences. This %pattern% may appear multiple times
+This is a sample paragraph. It contains some sample text with %pattern% occurrences. This %pattern% may appear multiple times
+This is a sample paragraph. It contains some sample text with %pattern% occurrences. This %pattern% may appear multiple times
+
