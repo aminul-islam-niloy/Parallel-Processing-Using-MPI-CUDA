@@ -1,0 +1,1 @@
+This is a sample paragraph containing %x% and %x% occurrences of the %x% pattern
