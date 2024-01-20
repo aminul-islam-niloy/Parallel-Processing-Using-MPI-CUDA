@@ -3,14 +3,15 @@
 #include <ctime>
 #include <cstdlib>
 #include <mpi.h>
-#include <vector>
+#include<vector>
+
 
 using namespace std;
 
 //... To compile: mpic++ matrix-multiplication.cpp -o matrix-multiplication
-//... To run: mpirun -n 4 ./matrix-multiplication
+//... To run: mpirun -n 4 ./matrix-multiplication  
 
-void generate_matrix(int row, int column, vector<vector<int>> &x)
+void generate_matrix(int row, int column, vector<vector<int>>& x)
 {
     x.resize(row, vector<int>(column));
     for (int r = 0; r < row; r++)
@@ -22,7 +23,7 @@ void generate_matrix(int row, int column, vector<vector<int>> &x)
     }
 }
 
-void multiply_matrix(vector<vector<int>> &x, vector<vector<int>> &y, vector<vector<int>> &z)
+void multiply_matrix(vector<vector<int>>& x, vector<vector<int>>& y, vector<vector<int>>& z)
 {
     int m = x.size(), n = x[0].size(), p = y[0].size();
     z.resize(m, vector<int>(p, 0));
@@ -39,7 +40,7 @@ void multiply_matrix(vector<vector<int>> &x, vector<vector<int>> &y, vector<vect
     }
 }
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     MPI_Init(&argc, &argv);
 
@@ -69,8 +70,7 @@ int main(int argc, char **argv)
 
             MPI_Barrier(MPI_COMM_WORLD);
 
-            cout << "Process " << world_rank << " & Result:"
-                 << "\n";
+            cout << "Process " << world_rank << " & Result:" << "\n";
             for (int r = 0; r < M; r++)
             {
                 for (int c = 0; c < P; c++)
@@ -83,8 +83,7 @@ int main(int argc, char **argv)
             end_time = MPI_Wtime();
             cout << "Process " << world_rank << " took " << end_time - start_time << " seconds\n";
         }
-        else
-            MPI_Barrier(MPI_COMM_WORLD);
+        else MPI_Barrier(MPI_COMM_WORLD);
     }
 
     MPI_Finalize();
@@ -92,4 +91,6 @@ int main(int argc, char **argv)
     return 0;
 }
 
-// mpiexec -n 2 ./GetingStarted2CPP 2 4 3 5
+
+
+//mpiexec -n 2 ./GetingStarted2CPP 2 4 3 5
